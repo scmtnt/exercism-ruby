@@ -8,13 +8,9 @@ To get started with TDD, see the `README.md` file in your
 
 class Phrase
 
-    attr_reader :counts
-
     def initialize(input)
         @words = input.scan(/\w+'*[\w*]|\d/)
         @words.each { |w| w.downcase! }
-        @counts = {}
-
     end
 
     def word_count
