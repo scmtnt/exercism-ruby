@@ -8,44 +8,21 @@ To get started with TDD, see the `README.md` file in your
 
 class Robot
   @@names_pool = []
-  @@used_names = {}
 
-  attr_reader :name
-
-  def initialize
+  def name
     Robot.fill_pool if @@names_pool.empty?
-    gen_robot_name
-  end
-
-  def gen_robot_name
-    @name = @@names_pool.sample
-    if @@used_names[@name]
-      reset
-    else
-      @@used_names[@name] = true
-    end
+    @name ||= @@names_pool.pop
   end
 
   def reset
-    if (@@used_names.size % 100).zero?
-      @@names_pool -= @@used_names.keys
-      @@used_names = {}
-    end
-    gen_robot_name
+    @name = nil
   end
 
   def self.fill_pool
-    ('A'..'Z').each do |first|
-      ('A'..'Z').each do |second|
-        (0..999).each do |num|
-          @@names_pool << first + second + '%03d' % num.to_s
-        end
-      end
-    end
+    @@names_pool = ('AA000'..'ZZ999').to_a.shuffle
   end
 
   def self.forget
     @@names_pool = []
-    @@used_names = {}
   end
 end
