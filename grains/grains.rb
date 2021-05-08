@@ -15,7 +15,7 @@ class Grains
     #   grains *= 2
     # end
     # grains
-    2**(sq -1)
+    2**(sq - 1)
   end
 
   def self.total
