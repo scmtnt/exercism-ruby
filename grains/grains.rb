@@ -7,8 +7,6 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Grains
-  @@board = []
-
   def self.square(sq)
     raise ArgumentError unless (1..64).include? sq
 
