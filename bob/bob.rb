@@ -30,7 +30,7 @@ class Bob
 
   def self.yelling?
     # (!@@remark.scan(/[!]$/).empty? && @@remark.scan(/[a-z]+/).empty?) ||
-    (@@remark.end_with?('!') && @@remark.count('a-z') == 0) ||
+    (@@remark.end_with?('!') && @@remark.count('a-z').zero?) ||
       (@@remark.scan(/[A-Z]+[0-9]*/).join == @@remark.scan(/\w+\d*/).join &&
         !@@remark.scan(/\w+\d*/).empty?)
   end
