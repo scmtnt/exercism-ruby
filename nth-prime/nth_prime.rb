@@ -25,5 +25,6 @@ class Prime
       return false if (number % div).zero?
     end
     true
+    #(2...number).to_a.none? { |div| (number % div).zero? }
   end
 end
